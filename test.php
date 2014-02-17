@@ -1,6 +1,6 @@
 <?
 	include 'includes.php';
-createuser("mjessop", "password", 3);
+createuser("", "", 3);
 exit;
 
 
