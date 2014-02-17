@@ -1,0 +1,5 @@
+Hello and welcome to my site!
+
+If you do not have a username and password or if your is not working please contact the site admin.
+
+The navigation menu is accessed by moving your mouse below the red bar at the top. There will only be options when you are logged in.

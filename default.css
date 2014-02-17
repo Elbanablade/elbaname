@@ -1,0 +1,459 @@
+html
+{
+	background: none repeat scroll 0 0 #111111;
+	color: #CCCCCC;
+	font-family: 'Source sans pro',sans-serif;
+	font-size: 17px;
+}
+header 
+{
+	background: none repeat scroll 0 0 #111111;
+	border-bottom: 4px solid #D52020;
+	color: #CCCCCC;
+	display:block;
+	height:80px;
+	left:0px;
+	line-height:78px;
+	margin: 0px;
+	padding: 0px;
+	position:fixed;
+	top:0px;
+	width:100%;
+	z-index: 100;
+}
+.navigation
+{
+	background: none repeat scroll 0 0 #111111;
+	color: #CCCCCC;
+	border-top:0px;
+	display:block;
+	height: 30px;
+	left: 0px;
+	line-height: 30px;
+	margin-left: 0px;
+	margin-top: 10px;
+	padding: 0px;
+	text-align:middle;
+	top: 82px;
+	width: 100%;
+	z-index: 111;
+}
+.navigation_hover
+{
+	background: #111111;
+	border-top: 1px solid #D5202D;
+	display: block;
+	height:40px;
+	left: 0px;
+	top: 83px;
+	width:1920px;
+	z-index:110;
+}
+.navigation_hover:hover .navigation
+{
+	display: block;
+}
+.m1
+{
+	left:0px;
+	text-align: left;	
+	top:0px;
+	width:200px;
+	z-index: 2;
+}
+.m2, a.site_name
+{
+	font-size:58px;
+	left:0px;
+	text-align:center;
+	top:0px;
+	width:100%;
+	z-index: 1;
+}
+.site_name
+{
+	font-family: 'Raleway', sans-serif;
+}
+.m3
+{
+	background: #D52020;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 20px;
+	padding-left: 20px;
+	right:0px;
+	text-align: left;
+	top:0px;
+	width:100px;
+}
+.m4
+{
+	left: 0px;
+	position: relative;
+	top:120px;
+	width:100%;
+}
+.m5
+{
+	float: left;
+	left: 0px;
+	padding-left: 10px;
+	position: relative;
+	text-align: left;
+	top:150px;
+	width: 45%;
+}
+.m6
+{
+	float: right;
+	position: relative;
+	right: 0px;
+	top:150px;
+	width: 45%;
+}
+.m6 .date
+{
+	text-align: center;
+	width:100px;
+}
+.m7
+{
+	padding-top: 135px;
+	position:relative;
+	text-align: left;
+	width: 80%;
+}
+.m7 a
+{
+	border-top: 2px solid #222222;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	margin: 0px 10px;
+	padding: 5px 0px 5px 10px;;
+	text-align: left;
+	text-transform: capitalize;
+	width:400px;
+}
+.m7 p 
+{
+	font-size: 16px;
+	margin: 0;
+	margin-bottom: 5px;
+}
+.quickview_anime
+{
+	background: black;
+	border: 1px solid #D52020;
+	border-radius:10px;
+	display: none;
+	height: 408px;
+	margin-left: 200px;
+	overflow: hidden;
+	padding: 20px;
+	position: fixed;
+	text-align: left;
+	top: 200px;
+	width: 600px;
+	z-index:1;
+}
+.watched_banner
+{
+	left: 20px;
+	position: absolute;
+	top: 20px;
+}
+.m7 .info
+{
+	float: right;
+	height: 412px;
+	margin-left: 12px;
+	overflow: hidden;
+	text-align: left;
+	width: 290px;
+}
+.m8
+{
+	display: block;
+	float: right;
+	padding-left: 10px;
+	padding-top: 120px;
+	position: absolute;
+	right: 60px;
+	text-align: left;
+	top: 0px;
+	width: 19%;
+}
+.m8 a
+{
+	display: block;
+	padding-left: 30px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+.m8 div
+{
+	display: inline;
+	position: relative;
+}
+.m8 .sort
+{
+	cursor: pointer;
+}
+.m9
+{
+	left: 0px;
+	position: absolute;
+	text-align: center;
+	top: 120px;
+	width: 65%;
+}
+.m9 th,
+.m9 td
+{
+	padding: 0px 10px;
+}
+.m9 a
+{
+	text-transform: capitalize;
+}
+.m10
+{
+	margin:20px;
+	right:0px;
+	top: 120px;
+	width:30%
+}
+.m10 img
+{
+	width: 100%;
+}
+.m11
+{
+	float: left;
+	margin: 20px;
+	left: 0px;
+	text-align: left;
+	top: 120px;
+	width: 40%;	
+}
+.m11 video
+{
+	width: 100%;
+	height: auto;
+	max-height: 560px;
+}
+.m11 .videowrapper
+{
+	max-width: 1000px;
+	width: 60%;
+}
+.m11.animeMovieVideo
+{
+	text-align: center;
+	width: 100%;
+}
+.m11.animeMovieVideo .videowrapper
+{
+	max-width: 750px;
+	position: relative;
+	width: 90%;
+}
+.m11.movieVideo
+{
+	text-align: center;
+	width: 100%;
+}
+.m11.movieVideo .videowrapper
+{
+	position: relative;
+	width: 80%;
+}
+.m12
+{
+	max-width: 775px;
+	min-width: 515px;
+	position: fixed;
+	text-align: left;
+	top: 710px;
+	width: 60%;
+}
+.m12.movieInfo
+{
+	left: 105px;
+	padding-bottom: 100px;
+	position: relative;
+	top: 700px;
+	width: 80%;
+}
+.m12 .title,
+.m12 a
+{
+	display: block;
+	font-family: 'Raleway', sans-serif;
+	font-size: 25px;
+	font-weight: 200;
+	padding: 0px;
+	text-transform: capitalize;
+	width: 100%;
+}
+.m12 span
+{
+	display: block;
+	width: 100%;
+}
+.m12 .next_mark_watched
+{
+	position: absolute;
+	right: 0px;
+	text-align: right;
+	top: 0px;
+	width:260px;
+}
+.m13
+{
+	position: absolute;
+	right: 90px;
+	top: 125px;
+	width: 300px;
+}
+.m13 a
+{
+	border-top: 2px solid #222222;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	margin: 0px 40px;
+	padding: 5px 0px 5px 10px;;
+	position: relative;
+	text-align: left;
+	text-transform: capitalize;
+	width:100%;
+}
+.m13.episode_menu a.current
+{
+	color: D52020;
+}
+.m13 span
+{
+	display: inline-block;
+	float: right;
+	height: 0px;
+	position: relative;
+	top: -30px;
+}
+.m14
+{
+	left: 30px;
+	top: 83px;
+	width:200px;
+	z-index: 120;
+}
+.m15
+{
+	display: block;
+	left: 30px;
+	position: relative;
+	text-align: left;
+	top: 140px;
+}
+.m15 td,
+.m15 th
+{
+	padding: 0px 20px;
+}
+.m15 table
+{
+	display: none;
+}
+.m15 h3
+{
+	cursor: pointer;
+}
+.m15 .user_info
+{
+	height: 40px;
+	vertical-align: top;
+}
+.m15 form#downloadListAddForm,
+.m15 form#bugListAddForm
+{
+	display: none;
+}
+.m15 .downloadList,
+.m15 .bugList
+{
+	position: relative;
+}
+a
+{
+	color: #CCCCCC;
+	font-weight: bold;
+	padding: 0px 20px;
+	text-decoration: none;
+}
+div
+{
+	display:inline-block;
+	position:fixed;
+	text-align:center;
+}
+table
+{
+	text-align: left;
+}
+th
+{
+	text-align:center;
+}
+username
+{
+	height: 20px;
+	left:10px;
+	position: fixed;
+	top:-20px;
+}
+.logout
+{
+	height: 20px;
+	left:10px;
+	padding: 0px;
+	position: fixed;
+	top:30px;
+}
+.search
+{
+	border: 1px solid #D52020;
+	border-style: none solid solid;
+	border-width: medium 1px 1px;
+	left: 0px;
+	height: 4px;
+	padding: 0 10px;
+	position: fixed;
+	width: 26%;
+	top: 120px;
+}
+.search input {
+	-moz-font-feature-settings: inherit;
+	-moz-font-language-override: inherit;
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+	border: medium none;
+	bottom: 5px;
+	color: inherit;
+	font-family: inherit;
+	font-size: 17px;
+	font-size-adjust: inherit;
+	font-stretch: inherit;
+	font-style: inherit;
+	font-variant: inherit;
+	font-weight: inherit;
+	line-height: 20px;
+	position: absolute;
+	left: 10px;
+	outline:none;
+	width: 95%;
+}
+.search input::-moz-placeholder {
+	color: #555555;
+}

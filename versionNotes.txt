@@ -1,0 +1,137 @@
+v000.002.001
+	created file sqlfunctions.php
+		place to store functions involving mysql
+
+v000.002.001
+	created function getQueryArray()
+		recieves a mysql call, executes it, and returns the resullt as an array
+
+v000.002.002
+	created file userfunctions.php
+		place to store user centerd functions such as add, delete, or modify
+
+v000.002.003
+	created function createUser()
+		accepts a username, password, and permissions level
+
+v000.002.004
+	modified function createUser()
+		added password encryption
+		created SQL statement for insert
+		passed to sql function to run the insert
+		require sql function to insert into database
+		
+v000.002.005
+	modified sqlfunctions.php
+		created function runQuery()
+			created to run a query and return if it worked or not
+
+v000.002.006
+	modified userfunctions.php
+		addingng in tests to make sure user does not exist
+		function works
+			
+v000.002.007
+	modified userfunctions.php
+		creating function deleteUser()
+			function to delete user
+	created arrayfunctions.php
+		place to put functions that modify arrays
+	modified arrayfunctions.php
+		creating function checkIfValueIsInArray()
+			function to check if value is in the array
+	modified includes
+		included arrayfunctions.php
+
+v000.002.008
+	modified userfunctions.php
+		create function updateUserPassword()
+			made to update the user's password
+		update function deleteUser()
+			add in output if user was not deleted
+
+v000.002.009
+	modified userfunctions.php
+		create function updateUserPermissions()
+			made to update the user's permissions level
+		update function createUser()
+			return 0 for worked
+			return 1 for failed
+		update function deleteUser()
+			return 0 for worked
+			return 1 for failed
+		update function updateUserPassword()
+			return 0 for worked
+			return 1 for failed
+		update function updateUserPermissionsLevel()
+			return 0 for worked
+			return 1 for failed
+
+v000.002.010
+	modified userfunctions.php
+		create function checkCredentials()
+			check if credentials are valid
+			return 0 for true
+			return 1 for false
+v000.002.011
+	create animefunctions.php
+		place to put functions involving anime
+	modify includes.php
+		add animefunctions.php
+	modify animefunctions.php
+		add function to get all anime
+
+v000.002.012
+	modify animefunctions.php
+		add getIndividualAnime()
+			returns all data on that anime
+
+v000.002.013
+	modify animefunctions.php
+		add getAllAnimeNames()
+			returns all anime names
+		modify getAllAnime()
+			returns with priority name, language, season, episode, quality
+
+v000.002.014
+	modify animefunctions.php
+		add getAllAnimeJapanese()
+		add getAllAnimeEnglish()
+
+v000.002.015
+	modify animefunctions.php
+		add getAllAnimeWatched()
+
+v000.002.016
+	modify animefunctions.php
+		add getAllAnimeUnWatched()
+		add getAllAnimeUnWatchedNames()
+		add getAllWatchedAnimeNames()
+
+v000.002.017
+	modify animefunctions.php
+		add getIndividualAnimeJapanese()
+		add getIndividualAnimeEnglish()
+
+v000.002.018
+	modify animefunctions.php
+		add getIndividualAnimeNumberOfEpisodesJapanese()
+		add getIndividualAnimeNumberOfEpisodesEnglish()
+
+v000.002.019
+	modify animefunctions.php
+		add getIndividualAnimeEpisodesWatchedJapanese()
+		add getIndividualAnimeEpisodesWatchedEnglish()
+
+
+
+
+future versions
+	modify animefunctions.php
+		add getIndividualAnimeInprogress()
+		add getIndividualAnimeWatched()
+		add getAllAnimeInProgress()
+			needs to be calculated off of number of episodes watched including languages
+		modify getAllAnimeWatched()
+			needs to be calculated off of if all episodes are watched for a language
+		

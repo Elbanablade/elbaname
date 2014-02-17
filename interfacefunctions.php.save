@@ -1,0 +1,514 @@
+<?
+	function printNavigation($permissionsLevel)
+	{
+?>
+		<div class="navigation_hover">
+			<div class="navigation">
+<?
+		if($permissionsLevel >= 1)
+		{
+?>
+				<a href="movies.php">Movies</a>
+				<a href="animemovies.php">Anime Movies</a>
+				<a href="anime.php">Anime</a>
+<?
+		}
+
+		if($permissionsLevel >= 6)
+		{
+?>
+				<a href="admin.php">Admin</a>
+<?
+		}
+?>
+			</div>
+		</div>
+<?
+	}
+
+	function printHeader()
+	{
+?>
+		<header>
+			<div class="m1 user_info">
+<?
+		if(checkCredentials($_COOKIE['username'], $_COOKIE['password']) == 1)
+		{
+			if($_SERVER["REQUEST_URI"] != "/index.php" && $_SERVER["REQUEST_URI"] != "/dev/index.php"  )
+			{
+				header("Location: index.php");
+				exit;
+			}
+			else
+			{
+				printLoginBar();
+			}
+		}
+		else
+		{
+			$permissionsLevel = getUserPermissionsLevel($_COOKIE['username']);
+			if($_SERVER["REQUEST_URI"] != "/index.php" && $_SERVER["REQUEST_URI"] != "/dev/index.php"  && pageCheck($_SERVER["REQUEST_URI"], $permissionsLevel) == 0 )
+			{
+				header("Location: index.php");
+				exit;
+			}
+?>
+				<span class="username"><?= $_COOKIE['username']; ?></span>
+				<a class="logout" href="logout.php">Logout</a>
+<?
+		}
+?>
+			</div>
+			<div class="m2 site_name"><a class="site_name" href="index.php">Elbaname</a></div>
+			<div class="m3 site_info">Alpha</div>
+		</header>
+		<div class="heading_block"></div>
+<?
+	}
+
+
+	function printStylesheets()
+	{
+?>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="default.css"/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="javascript.js"></script>
+<?
+	}
+
+	function printLoginBar()
+	{
+?>
+		<form action="validation.php" method="post">
+			<input type="text"
+				value="username"
+				name="username"
+				onfocus="if(this.value == 'username') {this.value=''}"
+				onblur="if(this.value == '') {this.value='username'}"
+			/>
+			<input type="password" name="password"/>
+			<input type="submit" value="login"/>
+		</form>
+<?
+	}
+
+	function printWelcome()
+	{
+?>
+		<div class="m4 welcome">
+			<h3>Welcome</h3>
+			<p><?= preg_replace("/\n/", "<br>", file_get_contents('welcome.txt')) ?></p>
+		</div>
+<?
+	}
+
+	function printAnouncements()
+	{
+?>
+		<div class="m5 anouncements">
+			<h3>Anouncements</h3>
+			<p><?= preg_replace("/\n/", "<br>", file_get_contents('anouncements.txt')) ?></p>
+		</div>
+<?
+	}
+
+	function printUpdates()
+	{
+?>
+		<div class="m6 updates">
+			<h3>Updates</h3>
+			<table>
+				<tr>
+					<th class="date">Date</th>
+					<th class="updates">Update</th>
+				</tr>
+				<tr>
+					<td>
+						<?= preg_replace("/\t/", "</td><td>", preg_replace("/\n/", "</td></tr><tr><td>", file_get_contents('updates.txt'))); ?>
+					</td>
+				</tr>
+			</table>
+		</div>
+<?
+	}
+
+	function printAnime($view, $sort)
+	{
+		if($view == "grid")
+		{
+?>
+		<div class="m6 anime grid">
+<?
+		}
+		else
+		{
+?>
+		<div class="m7 anime list">
+<?
+			switch($sort)
+			{
+				case "UnWatched":
+					echo "unWatched";
+					break;
+				default:
+					$animeNames = getAllAnimeDataNames();
+					foreach($animeNames as $i=>$v)
+					{
+?>
+			<a class="anime_link <?= $v[1] . " " . $v[4] . " " . $v[5]?>" href="animepage.php?name=<?= urlencode($v[1]) ?>" class="<?= $v[1] ?>"><?= preg_replace("/_/", " ", $v[1]) ?></a>
+<?
+					}
+					break;
+			}
+		}
+?>
+		</div>
+<?
+	}
+
+	function printAnimeMovies($view, $sort)
+	{
+		if($view == "grid")
+		{
+?>
+		<div class="m6 anime grid">
+<?
+		}
+		else
+		{
+?>
+		<div class="m7 anime list">
+<?
+			switch($sort)
+			{
+				case "UnWatched":
+					echo "unWatched";
+					break;
+				default:
+					$animeNames = getAllAnimeMovieNames();
+					foreach($animeNames as $i=>$v)
+					{
+?>
+			<a href="watchanimemovie.php?name=<?= urlencode($v) ?>" class="<?= $v ?>"><?= preg_replace("/_/", " ", $v) ?></a>
+<?
+					}
+					break;
+			}
+		}
+?>
+		</div>
+<?
+	}
+
+	function printMovies($view, $sort)
+	{
+		if($view == "grid")
+		{
+?>
+		<div class="m6 grid">
+<?
+		}
+		else
+		{
+?>
+		<div class="m7 list">
+<?
+			switch($sort)
+			{
+				case "UnWatched":
+					echo "unWatched";
+					break;
+				default:
+					$movieNames = getAllMovieNames();
+					foreach($movieNames as $i=>$v)
+					{
+?>
+			<a href="watchmovie.php?name=<?= urlencode($v) ?>" class="<?= $v ?>"><?= preg_replace("/_/", " ", $v) ?></a>
+<?
+					}
+					break;
+			}
+		}
+?>
+		</div>
+<?
+	}
+
+	function printSortOptions()
+	{
+?>
+		<div class="m8 sort_options">
+			<p>Sort</p>
+			<div class="language sort">
+				<span>Language</span>
+				<a onclick="showAll();">All</a>
+				<a onclick="showEnglishOnly();">English</a>
+				<a onclick="showJapaneseOnly();">Japanese</a>
+			</div>
+		</div>
+<?
+	}
+
+	function printAnimePage($name)
+	{
+		$animeInfo = getIndividualAnime($name);
+?>
+			<div class="m9 animeInfo">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Season</th>
+						<th>Episode</th>
+						<th>Quality</th>
+						<th>Language</th>
+					</tr>
+					<tr>
+<?
+foreach($animeInfo as $i=>$v)
+{
+?>
+					</tr>
+						<td><a href="watchanime.php?id=<?= $v[0] ?>"><?= preg_replace("/_/", " ", $v[1]) ?></a></td>
+						<td><?= $v[2] ?></td>
+						<td><?= $v[3] ?></td>
+						<td><?= $v[4] ?></td>
+						<td><?= $v[5] ?></td>
+					<td>
+<?
+}
+?>
+					</tr>
+				</table>
+			</div>
+			<div class="m10 animeImage">
+				<img src="/media/data/images/<?= $animeInfo[0][1] ?>.jpg"  onerror="this.src='/media/data/images/404_not_found.gif'"/>
+			</div>
+<?
+	}
+
+	function printWatchAnime($id)
+	{
+		$allAnime = getAllAnime();
+?>
+		<div class="m12 animeInfo">
+<?
+		foreach($allAnime as $i=>$v)
+		{
+			if($v[0] == $id)
+			{
+				$episodeInfo = $v;
+?>
+			<a href="animepage.php?name=<?= urlencode($v[1]) ?>"><?= preg_replace("/_/", " ", $v[1]) ?></a>
+			<span>Season: <?= $v[2] ?></span>
+			<span>Episode: <?= $v[3] ?></span>
+			<span>Language: <?= $v[5] ?></span>
+<?
+			}
+		}
+?>
+		</div>
+		<div class="m11 animeVideo">
+			<div class='videowrapper'>
+				<video width='1026' height='577' controls>
+					<source src='/<?= $episodeInfo[7] ?>' type="video/mp4">
+					Your browser does not support the video tag
+				</video>
+			</div>
+		</div>
+		<div class="m13 episode_menu">
+<?
+		foreach ($allAnime as $i=>$v)
+		{
+			if($v[1] == $episodeInfo[1] && $v[5] == $episodeInfo[5])
+			{
+				if($v[0] == $episodeInfo[0])
+				{
+?>
+				<a id="<?=$v[2] ?><?= $v[3] ?>" class="current" href="watchanime.php?id=<?= $v[0] ?>#<?= $v[2] ?><?= ($v[3]-2) ?>">Season <?= $v[2] ?> Episode <?= $v[3] ?></a>
+<?
+				}
+				else
+				{
+?>
+				<a id="<?=$v[2] ?><?= $v[3] ?>" href="watchanime.php?id=<?= $v[0] ?>#<?= $v[2] ?><?= ($v[3]-2) ?>">Season <?= $v[2] ?> Episode <?= $v[3] ?></a>
+<?
+				}
+			}
+		}
+	}
+
+
+	function printWatchAnimeMovie($name)
+	{
+		$allAnime = getAllAnimeMovies();
+?>
+		<div class="m12 animeInfo">
+<?
+		foreach($allAnime as $i=>$v)
+		{
+			if($v[1] == $name)
+			{
+				$episodeInfo = $v;
+?>
+			<span class="title"><?= preg_replace("/_/", " ", $v[1]) ?></span>
+			<span>Quality: <?= $v[2] ?></span>
+			<span>Language: <?= $v[3] ?></span>
+<?
+			}
+		}
+?>
+		</div>
+		<div class="m11 animeVideo">
+			<div class='videowrapper'>
+				<video width='1026' height='577' controls>
+					<source src='<?= $episodeInfo[5] ?>' type="video/mp4">
+					Your browser does not support the video tag
+				</video>
+			</div>
+		</div>
+<?
+	}
+
+	function printWatchMovie($name)
+	{
+		$allMovies = getAllMovies();
+?>
+		<div class="m12 movieInfo">
+<?
+		foreach($allMovies as $i=>$v)
+		{
+			if($v[1] == $name)
+			{
+				$movieInfo = $v;
+?>
+			<span class="title"><?= preg_replace("/_/", " ", $v[1]) ?></span>
+			<span>Quality: <?= $v[3] ?></span>
+<?
+			}
+		}
+?>
+		</div>
+		<div class="m11 movieVideo">
+			<div class='videowrapper'>
+				<video width='1026' height='577' controls>
+					<source src='<?= $movieInfo[4] ?>' type="video/mp4">
+					Your browser does not support the video tag
+				</video>
+			</div>
+		</div>
+<?
+	}
+
+	function printSearchBar()
+	{
+?>
+	$(document).ready(
+	      function() {
+	          $('#test').keyup(
+	          function() {
+	            var value = document.getElementById('search_input').value;
+	            console.log(value);
+	          });
+	      })
+
+		<div class="m14 search">
+			<input id="search_input" type="text" placeholder="Search by name" autofocus="" onchange="search();"></input>
+		</div>
+<?
+	}
+
+	function pageCheck($pageName, $permissionsLevel)
+	{
+
+		$pageName = explode("?", $pageName)[0];
+		switch($pageName)
+		{
+			case "/dev/animepage.php":
+			case "/animepage.php":
+			case "/dev/animemovies.php":
+			case "/animemovies.php":
+			case "/dev/anime.php":
+			case "/anime.php":
+			case "/dev/movies.php":
+			case "/movies.php":
+			case "/dev/watchanime.php":
+			case "/watchanime.php":
+			case "/dev/watchmovie.php":
+			case "/watchmovie.php":
+			case "/dev/watchanimemovie.php":
+			case "/watchanimemovie.php":
+				if($permissionsLevel >= 1)
+				{
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
+				break;
+			case "/dev/admin.php":
+			case "admin.php":
+				if($permissionsLevel >= 6)
+				{
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
+			default:
+				return 0;
+				break;
+
+		}
+	}
+
+	function printAllUserInfo()
+	{
+?>
+		<div class="m15 userInfo">
+			<h3 onclick="visibilityTogleUsersAdmin();">Users</h3>
+			<form action='#' method='post'>
+			<table id="users_admin"">
+				<tr>
+					<th>Username</th>
+					<th>Permissions Level</th>
+				</tr>
+				<tr id="new_user_button">
+					<form action='#' method='post'>
+						<td id="new_user_button">
+							
+						<button id="new_user_button" onclick="new_user_button_toggle()">Create User</button>
+					</td>
+				</tr>
+<?
+			$userInfo = getAllUserData();
+			foreach($userInfo as $i=>$v)
+			{
+?>
+				<tr class="user_info">
+					<td><?= $v[1] ?></td>
+					<td><a id="change_user_permissions" onclick="changeUserPermissionsClick();"><?= $v[3] ?></a></td>
+					<td><button id="change_user_password" onclick="changeUserPasswordClick()">Change Password</button></td>
+					<? if(strtolower($v[1]) != "elbanablade"): ?>
+					<td><form action="#" method="post"><input type="hidden" name="name" value="<?= $v[1] ?>"><input type="submit" value="Delete" ></input></form></td>
+					<? endif ?>
+				</tr>
+<?
+			}
+?>
+			</table>
+			</form>
+		</div>
+<?
+	}
+
+
+
+
+
+
+
+?>
