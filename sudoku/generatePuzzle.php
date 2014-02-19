@@ -270,21 +270,99 @@
 
 	function printPuzzle($puzzle)
 	{
-		for($i = 0; $i < 9; $i++)
-		{
-			for($j = 0; $j < 3; $j++)
-			{
-				echo $puzzle[$i][$j];
-			}
-			for($j = 0; $j < 3; $j++)
-			{
-				echo $puzzle[$i][$j+3];
-			}
-			for($j = 0; $j < 3; $j++)
-			{
-				echo $puzzle[$i][$j+6];
-			}
-			echo "\n";
-		}
+                //3 rows
+                echo $puzzle[0][0];
+                echo $puzzle[0][1];
+                echo $puzzle[0][2];
+                echo $puzzle[1][0];
+                echo $puzzle[1][1];
+                echo $puzzle[1][2];
+                echo $puzzle[2][0];
+                echo $puzzle[2][1];
+                echo $puzzle[2][2];
+                echo "\n";
+                echo $puzzle[0][3];
+                echo $puzzle[0][4];
+                echo $puzzle[0][5];
+                echo $puzzle[1][3];
+                echo $puzzle[1][4];
+                echo $puzzle[1][5];
+                echo $puzzle[2][3];
+                echo $puzzle[2][4];
+                echo $puzzle[2][5];
+                echo "\n";
+                echo $puzzle[0][6];
+                echo $puzzle[0][7];
+                echo $puzzle[0][8];
+                echo $puzzle[1][6];
+                echo $puzzle[1][7];
+                echo $puzzle[1][8];
+                echo $puzzle[2][6];
+                echo $puzzle[2][7];
+                echo $puzzle[2][8];
+                echo "\n";
+                //3 rows
+                echo $puzzle[3][0];
+                echo $puzzle[3][1];
+                echo $puzzle[3][2];
+                echo $puzzle[4][0];
+                echo $puzzle[4][1];
+                echo $puzzle[4][2];
+                echo $puzzle[5][0];
+                echo $puzzle[5][1];
+                echo $puzzle[5][2];
+                echo "\n";
+                echo $puzzle[3][3];
+                echo $puzzle[3][4];
+                echo $puzzle[3][5];
+                echo $puzzle[4][3];
+                echo $puzzle[4][4];
+                echo $puzzle[4][5];
+                echo $puzzle[5][3];
+                echo $puzzle[5][4];
+                echo $puzzle[5][5];
+                echo "\n";
+                echo $puzzle[3][6];
+                echo $puzzle[3][7];
+                echo $puzzle[3][8];
+                echo $puzzle[4][6];
+                echo $puzzle[4][7];
+                echo $puzzle[4][8];
+                echo $puzzle[5][6];
+                echo $puzzle[5][7];
+                echo $puzzle[5][8];
+                echo "\n";
+                //3 rows
+                echo $puzzle[6][0];
+                echo $puzzle[6][1];
+                echo $puzzle[6][2];
+                echo $puzzle[7][0];
+                echo $puzzle[7][1];
+                echo $puzzle[7][2];
+                echo $puzzle[8][0];
+                echo $puzzle[8][1];
+                echo $puzzle[8][2];
+                echo "\n";
+                echo $puzzle[6][3];
+                echo $puzzle[6][4];
+                echo $puzzle[6][5];
+                echo $puzzle[7][3];
+                echo $puzzle[7][4];
+                echo $puzzle[7][5];
+                echo $puzzle[8][3];
+                echo $puzzle[8][4];
+                echo $puzzle[8][5];
+                echo "\n";
+                echo $puzzle[6][6];
+                echo $puzzle[6][7];
+                echo $puzzle[6][8];
+                echo $puzzle[7][6];
+                echo $puzzle[7][7];
+                echo $puzzle[7][8];
+                echo $puzzle[8][6];
+                echo $puzzle[8][7];
+                echo $puzzle[8][8];
+                echo "\n";
+
 	}
 ?>
