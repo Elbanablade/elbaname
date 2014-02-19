@@ -39,6 +39,7 @@
 
 	printPuzzle($puzzle);
 //	print_r($puzzle);
+
 	function checkValidity($puzzle)
 	{
 		for($i = 0; $i < 9; $i++)
@@ -49,16 +50,35 @@
 				{
 					for($l = 0; $l < 9; $l++)
 					{
-						//cell check
-						if($i == $k && $j != $l)
+						if($puzzle[$i][$j] != 0 && $puzzle[$k][$l] != 0 && !($i == $k && $j == $l))
 						{
-							if($puzzle[$i][$j] == $puzzle[$k][$l] && $puzzle[$i][$j] != 0 && $puzzle[$k][$l] != 0)
+							//cell check
+							if($i == $k && $j != $l)
 							{
-								return false;
+								if($puzzle[$i][$j] == $puzzle[$k][$l])
+								{
+									return false;
+								}
 							}
+							//row check
+							if($i  < 3  && $k < 3)
+							{
+								if($i < 3 && $k < 3 && $j < 3 && $k < 3)
+								{
+									if($puzzle[$i][$j] == $puzzle[$k][$l])
+									{
+										return false;
+									}
+								}
+							}
+							elseif($i  > 2  && $i < 6 && $k > 2 && $k < 6)
+							{
+							}
+							elseif($i  > 5  && $i < 8 && $k > 5 && $k < 9)
+							{
+							}
+							//column check
 						}
-						//row check
-						//column check
 					}
 				}
 			}
